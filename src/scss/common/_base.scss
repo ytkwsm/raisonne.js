@@ -1,0 +1,61 @@
+@use '../mixin/_text.scss' as text;
+
+[data-raisonne-elem="wrapper"].raisonne-wrapper {
+    color: var(--TextColor);
+    overscroll-behavior: contain;
+
+    // box-sizing
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+    * {
+        font-family: "Helvetica Neue",
+            "Roboto",
+            Arial,
+            'Noto Sans JP',
+            "Hiragino Sans",
+            "Hiragino Kaku Gothic ProN",
+            Meiryo,
+            sans-serif;
+    }
+    hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+    }
+
+    // font-smoothing
+    *,
+    *::before,
+    *::after{
+        @include text.fontSmoothing();
+    }
+
+    // viewport
+    @-ms-viewport {
+        width: device-width;
+    }
+
+    button, input, select {
+        appearance: none;
+    }
+
+    // touch
+    a, area, button, [role="button"], input:not([type="range"]), label, select, summary, textarea {
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+    }
+
+
+    h1, h2, h3, h4, h5, h6 {
+        @include text.head();
+    }
+
+    [lang="en"] {
+        @include text.alphabetKerning();
+    }
+
+    
+}

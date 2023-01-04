@@ -1,0 +1,192 @@
+@use '../mixin/_text.scss' as text;
+
+
+[data-raisonne-elem="wrapper"] {
+    overflow: clip;
+    width: 100%;
+    // height: auto;
+    display: flow-root;
+}
+
+[data-raisonne-mode="timeline"] {
+    position: relative;
+    // position: sticky;
+    width: 100%;
+            // top: 0;
+            // left: 0;
+            // height: 50vh;
+            // overflow-y: auto;
+    // overflow: scroll;
+    // height: 50%;
+
+    &[data-raisonne-type="event"] {
+        & [data-raisonne-elem="header"] {
+            position: sticky;
+            top: 0;
+            left: 0;
+            height: var(--RaisonneHeaderHeight);
+            background: #fff;
+            z-index: var(--RaisonneZindexUiGlobal);
+            display: flex;
+
+            & [data-raisonne-header-nav-elem="contents"] {
+                overflow: scroll;
+            }
+
+            & [data-raisonne-header-nav-elem="controller"] {
+                position: sticky;
+                width: var(--RaisonneSizeRemEventDetailWidth);
+                // height: var(--RaisonneSizeRemEventDetailHeight);
+                height: 5.6125rem;
+                z-index: 2;
+                background: var(--RaisonneColorBgBase);
+                border-right:  var(--RaisonneBorderWeightBase) var(--RaisonneBorderStyleBase) var(--RaisonneBorderColorSeparateBase);
+                border-bottom:  var(--RaisonneBorderWeightBase) var(--RaisonneBorderStyleBase) var(--RaisonneBorderColorSeparateBase);
+            }
+
+            & [data-raisonne-header-nav-elem="years"] {
+                position: absolute;
+                left: 0;
+                padding-left: var(--RaisonneSizeRemEventDetailWidth);
+            }
+
+            & [data-raisonne-header-nav-elem="year"] {
+                display: flex;
+            }
+
+            & [data-raisonne-header-nav-elem="month"] {
+                // display: flex;
+                position: relative;
+                border-left:  var(--RaisonneBorderWeightBase) var(--RaisonneBorderStyleBase) var(--RaisonneBorderColorSeparateBase);
+
+                &:first-child {
+                    border-left: none;
+                }
+            }
+
+            & [data-raisonne-header-nav-elem="month-label"] {
+                position: sticky;
+                bottom: 0;
+                left: 0;
+                display: inline-block;
+                font-size: 1.5rem;
+                margin: 0;
+                padding-right: 1em;
+                padding: 0.25em 1em 0.25em 0.25em;
+                font-weight: 400;
+            }
+
+            & [data-raisonne-header-nav-elem="days"] {
+                display: flex;
+                border-bottom:  var(--RaisonneBorderWeightBase) var(--RaisonneBorderStyleBase) var(--RaisonneBorderColorSeparateBase);
+            }
+
+            & [data-raisonne-header-nav-elem="day"] {
+            }
+
+            & [data-raisonne-header-nav-elem="day-num"], & [ data-raisonne-header-nav-elem="day-week"] {
+                width: var(--RaisonneGridUnitBase);
+                height: var(--RaisonneGridUnitBase);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-right: var(--RaisonneBorderWeightBase) var(--RaisonneBorderStyleBase) var(--RaisonneBorderColorSeparateDays);
+            }
+
+            & [data-raisonne-header-nav-elem="day-num"]{
+                border-top:  var(--RaisonneBorderWeightBase) var(--RaisonneBorderStyleBase) var(--RaisonneBorderColorSeparateBase);
+                border-right: var(--RaisonneBorderWeightBase) var(--RaisonneBorderStyleBase) var(--RaisonneBorderColorSeparateDays);
+                background: var(--RaisonneColorBgBase);
+                font-size: 0.875em;
+            }
+
+            & [ data-raisonne-header-nav-elem="day-week"]{
+                background: var(--RaisonneHeaderColorBgDayWeek);
+                font-size: 0.6875em;
+            }
+
+            & [data-raisonne-header-date-dw="6"] {
+                color: var(--RaisonneColorTextDayWeekSat);
+            }
+
+            & [data-raisonne-header-date-dw="0"] {
+                color: var(--RaisonneColorTextDayWeekSun);
+            }
+        }
+        & [data-raisonne-elem="contents"] {
+            position: relative;
+            // height: calc(100vh - var(--RaisonneHeaderHeight));
+            overflow-x: auto;
+
+            & [data-raisonne-elem="body"] {
+            }
+
+            & [data-raisonne-elem="details"] {
+                list-style-type: none;
+                padding: 0;
+                width: 125%;//debug
+
+                [data-raisonne-elem="timeline-event-detail"] {
+                    // width: 100%;
+                    // margin-bottom: 1rem;
+                    position: relative;
+                    // padding-bottom: 1.5rem;
+                    display: flex;
+                    border-top: var(--RaisonneBorderWeightBase) var(--RaisonneBorderStyleBase) var(--RaisonneBorderColorEventDetail);
+
+                    &:hover {
+                        background-color: var(--RaisonneColorBgEventDetail);
+                    }
+                }
+
+                [data-raisonne-elem="timeline-event-detail-header"] {
+                    width: var(--RaisonneSizeRemEventDetailWidth);
+                    height: var(--RaisonneSizeRemEventDetailHeight);
+                    background: var(--RaisonneColorBgBase);
+                    border-right: var(--RaisonneBorderWeightBase) var(--RaisonneBorderStyleBase) var(--RaisonneBorderColorEventDetail);
+                    position: sticky;
+                    top: 0;
+                    left: 0;
+                }
+                
+                [data-raisonne-elem="timeline-event-detail-title-wrapper"] {
+                    font-size: var(--RaisonneFontSizeTitleAll);
+                    @include text.weight(regular);
+                    margin: 0;
+                }
+                
+                [data-raisonne-elem="timeline-event-detail-title-crown"] {
+                    display: block;
+                    margin-bottom: 0.125rem;
+                    font-size: var(--RaisonneFontSizeTitleCrown);
+                }
+                
+                [data-raisonne-elem="timeline-event-detail-title-main"] {
+                
+                }
+                
+                [data-raisonne-elem="timeline-event-detail-title-sub"] {
+                    // display: block;
+                    display: inline-block;
+                    font-size: var(--RaisonneFontSizeTitleSub);
+                    margin-left: 0.5em;
+                }
+
+                [data-raisonne-elem="timeline-event-detail-date-term"] {
+                    display: block;
+                    margin-top: 0.25rem;
+                    font-size: 0.875rem;
+                }
+
+                [data-raisonne-elem="timeline-event-detail-date-term-day"] {
+                    &.dateStart, &.dateEnd {
+
+                    }
+                    &.dateEnd {
+                        font-size: 0.75rem;
+                    }
+                }
+            }
+        }
+    }
+}

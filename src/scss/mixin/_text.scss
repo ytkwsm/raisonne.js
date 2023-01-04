@@ -1,0 +1,28 @@
+
+@mixin fontSmoothing() {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin alphabetKerning() {
+    font-kerning: normal;
+}
+
+@mixin head() {
+    font-feature-settings: "palt" 1;
+}
+
+@mixin weight($w: regular) {
+    @if ($w == regular) {
+        font-weight: 400;
+    }
+    @if ($w == medium) {
+        font-weight: 500;
+    }
+    @else if ($w == bold) {
+        font-weight: 700;
+    }
+    @else {
+        font-weight: 400;
+    }
+}

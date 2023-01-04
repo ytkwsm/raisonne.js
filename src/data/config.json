@@ -1,0 +1,15 @@
+{
+    "libName": "Raisonne.js"
+   ,"debug": true
+   ,"default": {
+     "lang":           "ja"
+    ,"wrapper":        "[data-raisonne-elem='wrapper']"
+    ,"uniqueName":     "false"
+    ,"mode":           "timeline"
+    ,"type":           "event"
+    ,"dateStart":      "2022-12-27"
+    ,"dayWeekStart":   "sun"
+    ,"dateRangeMonth": 1 
+    ,"schedules":      false
+   }
+ }

@@ -1,0 +1,44 @@
+:root {
+    // grid
+    --RaisonneGridUnitBase: 1.5rem;
+
+    // background
+    --RaisonneColorBgBase: #fff;
+
+    // border
+    --RaisonneBorderWeightBase: 1px;
+    --RaisonneBorderStyleBase: solid;
+    --RaisonneBorderColorEventDetail: rgba(221, 221, 221, 0.5); 
+    --RaisonneBorderColorSeparateBase: #ccc;
+    --RaisonneBorderColorSeparateDays: var(--RaisonneColorBgBase);
+    // text 
+    --TextColor: #000;
+    
+    // font-size
+    --RaisonneFontSizeTitleAll: 1rem;
+    --RaisonneFontSizeTitleCrown: 0.5em;
+    --RaisonneFontSizeTitleSub: 0.875em;
+
+    // header
+    --RaisonneHeaderHeight: 5.375rem;
+    --RaisonneHeaderColorBgDayWeek: #eee;
+    --RaisonneColorTextDayWeekSat: #005aff;
+    --RaisonneColorTextDayWeekSun: #ff3c00;
+
+    // event detail
+    --RaisonneWidthEventDetailUnit: 10;
+    --RaisonneWidthEventDetailResult: calc(var(--RaisonneGridUnitBase) * var(--RaisonneWidthEventDetailUnit));
+
+    // event detail header
+    --RaisonneSizeRemEventDetailWidth: var(--RaisonneWidthEventDetailResult);
+    --RaisonneSizeRemEventDetailHeight: 5rem;
+
+    // event detail duration
+    --RaisonneColorTimelineEventDetailDuration: #00ffb2;
+    --RaisonneColorBgEventDetail: rgba(221, 221, 221, 0.35); 
+
+    // z-index
+    --RaisonneZindexUiGlobal:   10;
+    --RaisonneZindexUiContents:  5;
+    --RaisonneZindexUiDisable:   1;
+}

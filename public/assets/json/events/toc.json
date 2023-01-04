@@ -1,0 +1,9 @@
+{
+     "year": 3
+    ,"all": "/assets/json/events/all.json"
+    ,"path": [
+        "/assets/json/events/2021.json"
+       ,"/assets/json/events/2022.json"
+       ,"/assets/json/events/2023.json"
+    ]
+}
