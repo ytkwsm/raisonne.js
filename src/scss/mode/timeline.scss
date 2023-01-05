@@ -21,6 +21,7 @@
 
     &[data-raisonne-type="event"] {
         & [data-raisonne-elem="header"] {
+            border-top: 0.25rem var(--RaisonneBorderStyleBase) var(--libRaisonneColorPrimary);
             position: sticky;
             top: 0;
             left: 0;
@@ -76,6 +77,20 @@
                 margin-left: calc(-1 * var(--RaisonneSizeRemEventDetailWidth));
                 width: calc(100% - (var(--RaisonneSizeRemEventDetailWidth) * 1.5));
                 font-weight: 400;
+
+                & [data-raisonne-header-nav-elem="month-label-year"] {
+                    display: inline-block;
+                    font-size: 0.875rem;
+                    transform: translateY(-0.5rem);
+                }
+
+                & [data-raisonne-header-nav-elem="month-label-separator"] {
+                    color: var(--RaisonneBorderColorSeparateBase);
+                }
+
+                & [data-raisonne-header-nav-elem="month-label-month"] {
+
+                }
             }
 
             & [data-raisonne-header-nav-elem="days"] {
@@ -118,13 +133,21 @@
         }
         & [data-raisonne-elem="contents"] {
             position: relative;
-            // height: calc(100vh - var(--RaisonneHeaderHeight));
+            cursor: grab;
+            user-select: none;
+            height: calc(100vh - var(--RaisonneHeaderHeight));
+            height: auto;
             overflow-x: auto;
+
+            &:active {
+                cursor: grabbing;
+            }
 
             & [data-raisonne-elem="body"] {
             }
 
             & [data-raisonne-elem="details"] {
+                pointer-events: none;
                 list-style-type: none;
                 padding: 0;
                 width: 125%;//debug
@@ -136,13 +159,43 @@
                     // padding-bottom: 1.5rem;
                     display: flex;
                     border-top: var(--RaisonneBorderWeightBase) var(--RaisonneBorderStyleBase) var(--RaisonneBorderColorEventDetail);
+                    pointer-events: none;
 
                     &:hover {
                         background-color: var(--RaisonneColorBgEventDetail);
                     }
                 }
 
+                [data-raisonne-elem="timeline-event-detail-body"] {
+                    pointer-events: auto;
+                    cursor: default;
+                    position: relative;
+                    // background: var(--RaisonneColorBgBase);
+                }
+
+                [data-raisonne-elem="timeline-event-detail-duration"] {
+                    // border-top: var(--RaisonneBorderWeightBase) var(--RaisonneBorderStyleBase) var(--RaisonneBorderColorSeparateBase);
+                    z-index: 1;
+                    &::before {
+                        display: block;
+                        content: " ";
+                        position: absolute;
+                        top: -1px;
+                        left: 0;
+                        z-index: 1;
+                        width: 100%;
+                        height: var(--RaisonneBorderWeightBase);
+                        background: var(--RaisonneBorderColorSeparateBase);
+                    }
+                }
+
+                [data-raisonne-elem="timeline-event-detail-duration-body"] {
+                    display: block;
+                }
+
                 [data-raisonne-elem="timeline-event-detail-header"] {
+                    pointer-events: auto;
+                    cursor: default;
                     width: var(--RaisonneSizeRemEventDetailWidth);
                     height: var(--RaisonneSizeRemEventDetailHeight);
                     background: var(--RaisonneColorBgBase);
@@ -150,6 +203,7 @@
                     position: sticky;
                     top: 0;
                     left: 0;
+                    z-index: 2;
                 }
                 
                 [data-raisonne-elem="timeline-event-detail-title-wrapper"] {
@@ -179,6 +233,14 @@
                     display: block;
                     margin-top: 0.25rem;
                     font-size: 0.875rem;
+                    position: sticky;
+                    top: 0;
+                    left: 0;
+                    margin-left: calc(-1 * var(--RaisonneSizeRemEventDetailWidth));
+                    padding-left: calc(1 * var(--RaisonneSizeRemEventDetailWidth));
+                    width: 100%;
+                    min-width: fit-content;
+                    max-width: fit-content;
                 }
 
                 [data-raisonne-elem="timeline-event-detail-date-term-day"] {

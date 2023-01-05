@@ -94,7 +94,13 @@ export default function (settings: any, data:any){
             }
             
             // titleSub
-            if(data.things.main.all[i].dateTermStart && data.things.main.all[i].dateTermEnd) {
+            if(data.things.main.all[i].dateStrAnother) {
+                thingElem.dateTerm = document.createElement("span");
+                thingElem.dateTerm.dataset.raisonneElem = "timeline-event-detail-date-term";
+                thingElem.dateTerm.append(document.createTextNode(data.things.main.all[i].dateStrAnother));
+                thingElem.wrapperBody.append(thingElem.dateTerm);
+                
+            } else if(data.things.main.all[i].dateTermStart && data.things.main.all[i].dateTermEnd) {
                 thingElem.dateTerm = document.createElement("span");
                 thingElem.dateTerm.dataset.raisonneElem = "timeline-event-detail-date-term";
 
