@@ -29,7 +29,11 @@ export function navDay(settings: any, data: any)   {
                 for(let m = settings.date.term.start.month; m <= 12; m++) {//月のループ
 
                     html += `<div data-raisonne-header-nav-elem="month">
-                    <h3 data-raisonne-header-nav-elem="month-label">${dateNum.year} / ${m}</h3>
+                    <h3 data-raisonne-header-nav-elem="month-label">
+                        <span data-raisonne-header-nav-elem="month-label-year">${dateNum.year}</span>
+                        <span data-raisonne-header-nav-elem="month-label-separator">/</span>
+                        <span data-raisonne-header-nav-elem="month-label-month">${String(m).padStart(2, '0')}</span>
+                    </h3>
                     <div data-raisonne-header-nav-elem="days">
                     `;
 
