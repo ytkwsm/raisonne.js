@@ -2,6 +2,9 @@
     // grid
     --RaisonneGridUnitBase: 1.5rem;
 
+    // color
+    --libRaisonneColorPrimary: #00ffb2;
+
     // background
     --RaisonneColorBgBase: #fff;
 
@@ -34,7 +37,7 @@
     --RaisonneSizeRemEventDetailHeight: 5rem;
 
     // event detail duration
-    --RaisonneColorTimelineEventDetailDuration: #00ffb2;
+    --RaisonneColorTimelineEventDetailDuration: var(--libRaisonneColorPrimary);
     --RaisonneColorBgEventDetail: rgba(221, 221, 221, 0.35); 
 
     // z-index
