@@ -93,6 +93,7 @@ export default class {
       debug.trace("toc.json loaded");
       debug.trace(Object.keys([data]).length);
       this.data.things.main.all = data;
+      this.data.things.num.mainAll = this.data.things.main.all.length;
 
       //UI描画用の日付関連を設定
       this.settings.date.term.start = date.getDetails(data[0].dateTermStart);

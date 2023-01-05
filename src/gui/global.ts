@@ -2,14 +2,25 @@ import * as date from '../tools/date'
 
 export function header(settings: any, data: any){ 
     return `<header data-raisonne-elem="header" class="raisonne-header">
-            ${navController()}
+            <div data-raisonne-elem="header-contents">
+            ${navController(settings, data)}
             <div data-raisonne-header-nav-elem="years">
             ${navDay(settings, data)}
+            </div>
             </div>
             </header>`;
 }
 
-function navController()   { return `<div data-raisonne-header-nav-elem="controller"></div>`; }
+function navController(settings: any, data: any)   { return `
+                                    <div data-raisonne-header-nav-elem="controller">
+                                        <div data-raisonne-elem="controller-contents">
+                                        <h2>
+                                            <span>イベント数：</span>
+                                            <span>${data.things.num.mainAll}</span>
+                                        </h2>
+                                        </div>
+                                    </div>
+                            `; }
 
 export function navDay(settings: any, data: any)   {
     // let fragment: DocumentFragment = new DocumentFragment();
