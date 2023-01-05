@@ -4,6 +4,7 @@
 [data-raisonne-elem="wrapper"] {
     overflow: clip;
     width: 100%;
+    max-width: 100%;
     // height: auto;
     display: flow-root;
 }
@@ -11,7 +12,10 @@
 [data-raisonne-mode="timeline"] {
     position: relative;
     // position: sticky;
-    width: 100%;
+    // width: 100%;
+    overflow-x: clip;
+    width: 100vw;
+    max-width: 100vw;
             // top: 0;
             // left: 0;
             // height: 50vh;
@@ -25,29 +29,49 @@
             position: sticky;
             top: 0;
             left: 0;
+            width: 100vw;
+            max-width: 100vw;
             height: var(--RaisonneHeaderHeight);
             background: #fff;
             z-index: var(--RaisonneZindexUiGlobal);
-            display: flex;
+
+            & [data-raisonne-elem="header-contents"] {
+                position: sticky;
+                // height: auto;
+                overflow-x: hidden;
+                display: flex;
+            }
+
 
             & [data-raisonne-header-nav-elem="contents"] {
                 overflow: scroll;
             }
 
             & [data-raisonne-header-nav-elem="controller"] {
-                position: sticky;
+                position: absolute;
                 width: var(--RaisonneSizeRemEventDetailWidth);
                 // height: var(--RaisonneSizeRemEventDetailHeight);
-                height: 5.23rem;
+                height: 5.3rem;
                 z-index: 2;
                 background: var(--RaisonneColorBgBase);
                 border-right:  var(--RaisonneBorderWeightBase) var(--RaisonneBorderStyleBase) var(--RaisonneBorderColorSeparateBase);
                 border-bottom:  var(--RaisonneBorderWeightBase) var(--RaisonneBorderStyleBase) var(--RaisonneBorderColorSeparateBase);
             }
 
-            & [data-raisonne-header-nav-elem="years"] {
+            & [data-raisonne-elem="controller-contents"] {
+                // background: #f0f;
+                width: 100%;
+                height: 100%;
                 position: absolute;
+                top: 0;
                 left: 0;
+                border-bottom:  var(--RaisonneBorderWeightBase) var(--RaisonneBorderStyleBase) var(--RaisonneBorderColorSeparateBase);
+            }
+
+            & [data-raisonne-header-nav-elem="years"] {
+                // position: absolute;
+                // left: 0;
+                transform: translateX(0);//これを動かしてスクロール連動させる。
                 padding-left: var(--RaisonneSizeRemEventDetailWidth);
             }
 
@@ -241,6 +265,10 @@
                     width: 100%;
                     min-width: fit-content;
                     max-width: fit-content;
+                }
+
+                [data-raisonne-elem="timeline-event-detail-date-ter-str-another"] {
+                    // font-size: 0.875rem;
                 }
 
                 [data-raisonne-elem="timeline-event-detail-date-term-day"] {
