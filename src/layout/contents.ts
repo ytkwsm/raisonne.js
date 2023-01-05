@@ -97,7 +97,12 @@ export default function (settings: any, data:any){
             if(data.things.main.all[i].dateStrAnother) {
                 thingElem.dateTerm = document.createElement("span");
                 thingElem.dateTerm.dataset.raisonneElem = "timeline-event-detail-date-term";
-                thingElem.dateTerm.append(document.createTextNode(data.things.main.all[i].dateStrAnother));
+
+
+                thingElem.dateTermStrAnother = document.createElement("span");
+                thingElem.dateTermStrAnother.dataset.raisonneElem = "timeline-event-detail-date-term-str-another";
+                thingElem.dateTermStrAnother.append(document.createTextNode(data.things.main.all[i].dateStrAnother));
+                thingElem.dateTerm.append(thingElem.dateTermStrAnother);
                 thingElem.wrapperBody.append(thingElem.dateTerm);
                 
             } else if(data.things.main.all[i].dateTermStart && data.things.main.all[i].dateTermEnd) {
