@@ -4,6 +4,8 @@
 
     // color
     --libRaisonneColorPrimary: #00ffb2;
+    --libRaisonneColorColumnOdd: #f9f9f9;
+    --libRaisonneColorColumnEven: #ffffff;
 
     // background
     --RaisonneColorBgBase: #fff;
@@ -21,6 +23,9 @@
     --RaisonneFontSizeTitleAll: 1rem;
     --RaisonneFontSizeTitleCrown: 0.5em;
     --RaisonneFontSizeTitleSub: 0.875em;
+
+    // timeline / transform
+    --libRaisonnePosTimelineScrollX: 0;
 
     // header
     --RaisonneHeaderHeight: 5.375rem;

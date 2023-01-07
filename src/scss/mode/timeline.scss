@@ -36,7 +36,7 @@
             z-index: var(--RaisonneZindexUiGlobal);
 
             & [data-raisonne-elem="header-contents"] {
-                position: sticky;
+                // position: sticky;
                 // height: auto;
                 overflow-x: hidden;
                 display: flex;
@@ -69,9 +69,9 @@
             }
 
             & [data-raisonne-header-nav-elem="years"] {
-                // position: absolute;
-                // left: 0;
-                transform: translateX(0);//これを動かしてスクロール連動させる。
+                position: absolute;
+                left: var(--libRaisonnePosTimelineScrollX);//これを動かしてスクロール連動させる。
+                // transform: translateX(var(--libRaisonnePosTimelineScrollX));
                 padding-left: var(--RaisonneSizeRemEventDetailWidth);
             }
 
@@ -163,8 +163,21 @@
             height: auto;
             overflow-x: auto;
 
+            &:hover {
+                background-color: #f9f9f9;
+
+            }
+
+
+            
+            &:has( [data-raisonne-elem="timeline-event-detail-header"]:hover ):hover,
+            &:has( [data-raisonne-elem="timeline-event-detail-body"]:hover ):hover {
+                background-color: var(--RaisonneColorBgBase);
+            }
+
             &:active {
                 cursor: grabbing;
+                background-color: #fff;
             }
 
             & [data-raisonne-elem="body"] {
@@ -173,8 +186,11 @@
             & [data-raisonne-elem="details"] {
                 pointer-events: none;
                 list-style-type: none;
-                padding: 0;
-                width: 125%;//debug
+                margin: 0;
+                padding: var(--RaisonneGridUnitBase) 0 0 0;
+                width: fit-content;
+                background: 
+                linear-gradient(90deg, var(--libRaisonneColorColumnOdd) var(--RaisonneGridUnitBase), var(--libRaisonneColorColumnEven) var(--RaisonneGridUnitBase)) 0 0 / calc(var(--RaisonneGridUnitBase) * 2) calc(var(--RaisonneGridUnitBase) * 2);
 
                 [data-raisonne-elem="timeline-event-detail"] {
                     // width: 100%;
@@ -265,10 +281,12 @@
                     width: 100%;
                     min-width: fit-content;
                     max-width: fit-content;
+                    pointer-events: none;
                 }
 
-                [data-raisonne-elem="timeline-event-detail-date-ter-str-another"] {
+                [data-raisonne-elem="timeline-event-detail-date-term-str-another"] {
                     // font-size: 0.875rem;
+                    @include text.head();
                 }
 
                 [data-raisonne-elem="timeline-event-detail-date-term-day"] {
