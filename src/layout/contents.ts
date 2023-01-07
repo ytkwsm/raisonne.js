@@ -17,7 +17,7 @@ export default function (settings: any, data:any){
         target.style = document.createElement("style");
         target.style.textContent = `
             [data-raisonne-elem="timeline-event-detail"] {
-                width: calc(${settings.date.term.diff.days } * var(--RaisonneGridUnitBase));
+                width: calc(${settings.date.term.diff.days } * var(--libRaisonneGridUnitBase));
             }
         `;
         target.all.append(target.style);
@@ -33,14 +33,14 @@ export default function (settings: any, data:any){
             thingElem.wrapperStyle = document.createElement("style");
             thingElem.wrapperStyle.textContent = `
                 [data-raisonne-elem="timeline-event-detail-body"][data-raisonne-date-diff-start-all="${date.getTermDiffDay(settings.date.term.start.monthFirst.fullStrDay, data.things.main.all[i].dateTermStart)}"] {
-                    margin-left: calc(${date.getTermDiffDay(settings.date.term.start.monthFirst.fullStrDay, data.things.main.all[i].dateTermStart)} * var(--RaisonneGridUnitBase));
+                    margin-left: calc(${date.getTermDiffDay(settings.date.term.start.monthFirst.fullStrDay, data.things.main.all[i].dateTermStart)} * var(--libRaisonneGridUnitBase));
                 }
 
                 [data-raisonne-date-diff-term-days="${date.getTermDiffDay(data.things.main.all[i].dateTermStart, data.things.main.all[i].dateTermEnd) + 1}"] [data-raisonne-elem="timeline-event-detail-duration-body"] ,
                 [data-raisonne-date-diff-term-days="${date.getTermDiffDay(data.things.main.all[i].dateTermStart, data.things.main.all[i].dateTermEnd) + 1}"] [data-raisonne-elem="timeline-event-detail-duration-detail"] {
-                    width: calc(var(--RaisonneGridUnitBase) * ${date.getTermDiffDay(data.things.main.all[i].dateTermStart, data.things.main.all[i].dateTermEnd) + 1});
-                    height: var(--RaisonneGridUnitBase);
-                    fill: var(--RaisonneColorTimelineEventDetailDuration);
+                    width: calc(var(--libRaisonneGridUnitBase) * ${date.getTermDiffDay(data.things.main.all[i].dateTermStart, data.things.main.all[i].dateTermEnd) + 1});
+                    height: var(--libRaisonneGridUnitBase);
+                    fill: var(--libRaisonneColorTimelineEventDetailDuration);
                 }
             `;
             thingElem.wrapperAll.append(thingElem.wrapperStyle);

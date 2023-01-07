@@ -25,15 +25,15 @@
 
     &[data-raisonne-type="event"] {
         & [data-raisonne-elem="header"] {
-            border-top: 0.25rem var(--RaisonneBorderStyleBase) var(--libRaisonneColorPrimary);
+            border-top: 0.25rem var(--libRaisonneBorderStyleBase) var(--libRaisonneColorPrimary);
             position: sticky;
             top: 0;
             left: 0;
             width: 100vw;
             max-width: 100vw;
-            height: var(--RaisonneHeaderHeight);
+            height: var(--libRaisonneHeaderHeight);
             background: #fff;
-            z-index: var(--RaisonneZindexUiGlobal);
+            z-index: var(--libRaisonneZindexUiGlobal);
 
             & [data-raisonne-elem="header-contents"] {
                 // position: sticky;
@@ -49,13 +49,13 @@
 
             & [data-raisonne-header-nav-elem="controller"] {
                 position: absolute;
-                width: var(--RaisonneSizeRemEventDetailWidth);
-                // height: var(--RaisonneSizeRemEventDetailHeight);
+                width: var(--libRaisonneSizeRemEventDetailWidth);
+                // height: var(--libRaisonneSizeRemEventDetailHeight);
                 height: 5.3rem;
                 z-index: 2;
-                background: var(--RaisonneColorBgBase);
-                border-right:  var(--RaisonneBorderWeightBase) var(--RaisonneBorderStyleBase) var(--RaisonneBorderColorSeparateBase);
-                border-bottom:  var(--RaisonneBorderWeightBase) var(--RaisonneBorderStyleBase) var(--RaisonneBorderColorSeparateBase);
+                background: var(--libRaisonneColorBgBase);
+                border-right:  var(--libRaisonneBorderWeightBase) var(--libRaisonneBorderStyleBase) var(--libRaisonneBorderColorSeparateBase);
+                border-bottom:  var(--libRaisonneBorderWeightBase) var(--libRaisonneBorderStyleBase) var(--libRaisonneBorderColorSeparateBase);
             }
 
             & [data-raisonne-elem="controller-contents"] {
@@ -65,14 +65,15 @@
                 position: absolute;
                 top: 0;
                 left: 0;
-                border-bottom:  var(--RaisonneBorderWeightBase) var(--RaisonneBorderStyleBase) var(--RaisonneBorderColorSeparateBase);
+                border-bottom:  var(--libRaisonneBorderWeightBase) var(--libRaisonneBorderStyleBase) var(--libRaisonneBorderColorSeparateBase);
             }
 
             & [data-raisonne-header-nav-elem="years"] {
                 position: absolute;
                 left: var(--libRaisonnePosTimelineScrollX);//これを動かしてスクロール連動させる。
+                // iOSではstickyを諦めてtransformにする？
                 // transform: translateX(var(--libRaisonnePosTimelineScrollX));
-                padding-left: var(--RaisonneSizeRemEventDetailWidth);
+                padding-left: var(--libRaisonneSizeRemEventDetailWidth);
             }
 
             & [data-raisonne-header-nav-elem="year"] {
@@ -82,7 +83,7 @@
             & [data-raisonne-header-nav-elem="month"] {
                 // display: flex;
                 position: relative;
-                border-left:  var(--RaisonneBorderWeightBase) var(--RaisonneBorderStyleBase) var(--RaisonneBorderColorSeparateBase);
+                border-left:  var(--libRaisonneBorderWeightBase) var(--libRaisonneBorderStyleBase) var(--libRaisonneBorderColorSeparateBase);
 
                 &:first-child {
                     border-left: none;
@@ -97,9 +98,9 @@
                 font-size: 1.5rem;
                 margin: 0;
                 padding: 0.25em 1em 0.25em 0.25em;
-                transform:  translateX(var(--RaisonneSizeRemEventDetailWidth));
-                margin-left: calc(-1 * var(--RaisonneSizeRemEventDetailWidth));
-                width: calc(100% - (var(--RaisonneSizeRemEventDetailWidth) * 1.5));
+                transform:  translateX(var(--libRaisonneSizeRemEventDetailWidth));
+                margin-left: calc(-1 * var(--libRaisonneSizeRemEventDetailWidth));
+                width: calc(100% - (var(--libRaisonneSizeRemEventDetailWidth) * 1.5));
                 font-weight: 400;
 
                 & [data-raisonne-header-nav-elem="month-label-year"] {
@@ -109,7 +110,7 @@
                 }
 
                 & [data-raisonne-header-nav-elem="month-label-separator"] {
-                    color: var(--RaisonneBorderColorSeparateBase);
+                    color: var(--libRaisonneBorderColorSeparateBase);
                 }
 
                 & [data-raisonne-header-nav-elem="month-label-month"] {
@@ -119,47 +120,47 @@
 
             & [data-raisonne-header-nav-elem="days"] {
                 display: flex;
-                border-bottom:  var(--RaisonneBorderWeightBase) var(--RaisonneBorderStyleBase) var(--RaisonneBorderColorSeparateBase);
+                border-bottom:  var(--libRaisonneBorderWeightBase) var(--libRaisonneBorderStyleBase) var(--libRaisonneBorderColorSeparateBase);
             }
 
             & [data-raisonne-header-nav-elem="day"] {
             }
 
             & [data-raisonne-header-nav-elem="day-num"], & [ data-raisonne-header-nav-elem="day-week"] {
-                width: var(--RaisonneGridUnitBase);
-                height: var(--RaisonneGridUnitBase);
+                width: var(--libRaisonneGridUnitBase);
+                height: var(--libRaisonneGridUnitBase);
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                border-right: var(--RaisonneBorderWeightBase) var(--RaisonneBorderStyleBase) var(--RaisonneBorderColorSeparateDays);
+                border-right: var(--libRaisonneBorderWeightBase) var(--libRaisonneBorderStyleBase) var(--libRaisonneBorderColorSeparateDays);
             }
 
             & [data-raisonne-header-nav-elem="day-num"]{
-                border-top:  var(--RaisonneBorderWeightBase) var(--RaisonneBorderStyleBase) var(--RaisonneHeaderColorBgDayWeek);
-                border-right: var(--RaisonneBorderWeightBase) var(--RaisonneBorderStyleBase) var(--RaisonneBorderColorSeparateDays);
-                background: var(--RaisonneColorBgBase);
+                border-top:  var(--libRaisonneBorderWeightBase) var(--libRaisonneBorderStyleBase) var(--libRaisonneHeaderColorBgDayWeek);
+                border-right: var(--libRaisonneBorderWeightBase) var(--libRaisonneBorderStyleBase) var(--libRaisonneBorderColorSeparateDays);
+                background: var(--libRaisonneColorBgBase);
                 font-size: 0.875em;
             }
 
             & [ data-raisonne-header-nav-elem="day-week"]{
-                background: var(--RaisonneHeaderColorBgDayWeek);
-                height: calc(var(--RaisonneGridUnitBase) * 0.75);
+                background: var(--libRaisonneHeaderColorBgDayWeek);
+                height: calc(var(--libRaisonneGridUnitBase) * 0.75);
                 font-size: 0.6875em;
             }
 
             & [data-raisonne-header-date-dw="6"] {
-                color: var(--RaisonneColorTextDayWeekSat);
+                color: var(--libRaisonneColorTextDayWeekSat);
             }
 
             & [data-raisonne-header-date-dw="0"] {
-                color: var(--RaisonneColorTextDayWeekSun);
+                color: var(--libRaisonneColorTextDayWeekSun);
             }
         }
         & [data-raisonne-elem="contents"] {
             position: relative;
             cursor: grab;
             user-select: none;
-            height: calc(100vh - var(--RaisonneHeaderHeight));
+            height: calc(100vh - var(--libRaisonneHeaderHeight));
             height: auto;
             overflow-x: auto;
 
@@ -172,7 +173,7 @@
             
             &:has( [data-raisonne-elem="timeline-event-detail-header"]:hover ):hover,
             &:has( [data-raisonne-elem="timeline-event-detail-body"]:hover ):hover {
-                background-color: var(--RaisonneColorBgBase);
+                background-color: var(--libRaisonneColorBgBase);
             }
 
             &:active {
@@ -187,10 +188,10 @@
                 pointer-events: none;
                 list-style-type: none;
                 margin: 0;
-                padding: var(--RaisonneGridUnitBase) 0 0 0;
+                padding: var(--libRaisonneGridUnitBase) 0 0 0;
                 width: fit-content;
                 background: 
-                linear-gradient(90deg, var(--libRaisonneColorColumnOdd) var(--RaisonneGridUnitBase), var(--libRaisonneColorColumnEven) var(--RaisonneGridUnitBase)) 0 0 / calc(var(--RaisonneGridUnitBase) * 2) calc(var(--RaisonneGridUnitBase) * 2);
+                linear-gradient(90deg, var(--libRaisonneColorColumnOdd) var(--libRaisonneGridUnitBase), var(--libRaisonneColorColumnEven) var(--libRaisonneGridUnitBase)) 0 0 / calc(var(--libRaisonneGridUnitBase) * 2) calc(var(--libRaisonneGridUnitBase) * 2);
 
                 [data-raisonne-elem="timeline-event-detail"] {
                     // width: 100%;
@@ -198,11 +199,11 @@
                     position: relative;
                     // padding-bottom: 1.5rem;
                     display: flex;
-                    border-top: var(--RaisonneBorderWeightBase) var(--RaisonneBorderStyleBase) var(--RaisonneBorderColorEventDetail);
+                    border-top: var(--libRaisonneBorderWeightBase) var(--libRaisonneBorderStyleBase) var(--libRaisonneBorderColorEventDetail);
                     pointer-events: none;
 
                     &:hover {
-                        background-color: var(--RaisonneColorBgEventDetail);
+                        background-color: var(--libRaisonneColorBgEventDetail);
                     }
                 }
 
@@ -210,11 +211,11 @@
                     pointer-events: auto;
                     cursor: default;
                     position: relative;
-                    // background: var(--RaisonneColorBgBase);
+                    // background: var(--libRaisonneColorBgBase);
                 }
 
                 [data-raisonne-elem="timeline-event-detail-duration"] {
-                    // border-top: var(--RaisonneBorderWeightBase) var(--RaisonneBorderStyleBase) var(--RaisonneBorderColorSeparateBase);
+                    // border-top: var(--libRaisonneBorderWeightBase) var(--libRaisonneBorderStyleBase) var(--libRaisonneBorderColorSeparateBase);
                     z-index: 1;
                     &::before {
                         display: block;
@@ -224,8 +225,8 @@
                         left: 0;
                         z-index: 1;
                         width: 100%;
-                        height: var(--RaisonneBorderWeightBase);
-                        background: var(--RaisonneBorderColorSeparateBase);
+                        height: var(--libRaisonneBorderWeightBase);
+                        background: var(--libRaisonneBorderColorSeparateBase);
                     }
                 }
 
@@ -236,10 +237,10 @@
                 [data-raisonne-elem="timeline-event-detail-header"] {
                     pointer-events: auto;
                     cursor: default;
-                    width: var(--RaisonneSizeRemEventDetailWidth);
-                    height: var(--RaisonneSizeRemEventDetailHeight);
-                    background: var(--RaisonneColorBgBase);
-                    border-right: var(--RaisonneBorderWeightBase) var(--RaisonneBorderStyleBase) var(--RaisonneBorderColorEventDetail);
+                    width: var(--libRaisonneSizeRemEventDetailWidth);
+                    height: var(--libRaisonneSizeRemEventDetailHeight);
+                    background: var(--libRaisonneColorBgBase);
+                    border-right: var(--libRaisonneBorderWeightBase) var(--libRaisonneBorderStyleBase) var(--libRaisonneBorderColorEventDetail);
                     position: sticky;
                     top: 0;
                     left: 0;
@@ -247,7 +248,7 @@
                 }
                 
                 [data-raisonne-elem="timeline-event-detail-title-wrapper"] {
-                    font-size: var(--RaisonneFontSizeTitleAll);
+                    font-size: var(--libRaisonneFontSizeTitleAll);
                     @include text.weight(regular);
                     margin: 0;
                 }
@@ -255,7 +256,7 @@
                 [data-raisonne-elem="timeline-event-detail-title-crown"] {
                     display: block;
                     margin-bottom: 0.125rem;
-                    font-size: var(--RaisonneFontSizeTitleCrown);
+                    font-size: var(--libRaisonneFontSizeTitleCrown);
                 }
                 
                 [data-raisonne-elem="timeline-event-detail-title-main"] {
@@ -265,7 +266,7 @@
                 [data-raisonne-elem="timeline-event-detail-title-sub"] {
                     // display: block;
                     display: inline-block;
-                    font-size: var(--RaisonneFontSizeTitleSub);
+                    font-size: var(--libRaisonneFontSizeTitleSub);
                     margin-left: 0.5em;
                 }
 
@@ -276,8 +277,8 @@
                     position: sticky;
                     top: 0;
                     left: 0;
-                    margin-left: calc(-1 * var(--RaisonneSizeRemEventDetailWidth) - (var(--RaisonneGridUnitBase) / 2));
-                    padding-left: calc(1 * var(--RaisonneSizeRemEventDetailWidth) + (var(--RaisonneGridUnitBase) / 2));
+                    margin-left: calc(-1 * var(--libRaisonneSizeRemEventDetailWidth) - (var(--libRaisonneGridUnitBase) / 2));
+                    padding-left: calc(1 * var(--libRaisonneSizeRemEventDetailWidth) + (var(--libRaisonneGridUnitBase) / 2));
                     width: 100%;
                     min-width: fit-content;
                     max-width: fit-content;

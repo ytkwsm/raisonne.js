@@ -1,6 +1,6 @@
 :root {
     // grid
-    --RaisonneGridUnitBase: 1.5rem;
+    --libRaisonneGridUnitBase: 1.5rem;
 
     // color
     --libRaisonneColorPrimary: #00ffb2;
@@ -8,45 +8,45 @@
     --libRaisonneColorColumnEven: #ffffff;
 
     // background
-    --RaisonneColorBgBase: #fff;
+    --libRaisonneColorBgBase: #fff;
 
     // border
-    --RaisonneBorderWeightBase: 1px;
-    --RaisonneBorderStyleBase: solid;
-    --RaisonneBorderColorEventDetail: rgba(221, 221, 221, 0.5); 
-    --RaisonneBorderColorSeparateBase: #ccc;
-    --RaisonneBorderColorSeparateDays: var(--RaisonneColorBgBase);
+    --libRaisonneBorderWeightBase: 1px;
+    --libRaisonneBorderStyleBase: solid;
+    --libRaisonneBorderColorEventDetail: rgba(221, 221, 221, 0.5); 
+    --libRaisonneBorderColorSeparateBase: #ccc;
+    --libRaisonneBorderColorSeparateDays: var(--libRaisonneColorBgBase);
     // text 
     --TextColor: #000;
     
     // font-size
-    --RaisonneFontSizeTitleAll: 1rem;
-    --RaisonneFontSizeTitleCrown: 0.5em;
-    --RaisonneFontSizeTitleSub: 0.875em;
+    --libRaisonneFontSizeTitleAll: 1rem;
+    --libRaisonneFontSizeTitleCrown: 0.5em;
+    --libRaisonneFontSizeTitleSub: 0.875em;
 
     // timeline / transform
     --libRaisonnePosTimelineScrollX: 0;
 
     // header
-    --RaisonneHeaderHeight: 5.375rem;
-    --RaisonneHeaderColorBgDayWeek: #eee;
-    --RaisonneColorTextDayWeekSat: #005aff;
-    --RaisonneColorTextDayWeekSun: #ff3c00;
+    --libRaisonneHeaderHeight: 5.375rem;
+    --libRaisonneHeaderColorBgDayWeek: #eee;
+    --libRaisonneColorTextDayWeekSat: #005aff;
+    --libRaisonneColorTextDayWeekSun: #ff3c00;
 
     // event detail
-    --RaisonneWidthEventDetailUnit: 10;
-    --RaisonneWidthEventDetailResult: calc(var(--RaisonneGridUnitBase) * var(--RaisonneWidthEventDetailUnit));
+    --libRaisonneWidthEventDetailUnit: 10;
+    --libRaisonneWidthEventDetailResult: calc(var(--libRaisonneGridUnitBase) * var(--libRaisonneWidthEventDetailUnit));
 
     // event detail header
-    --RaisonneSizeRemEventDetailWidth: var(--RaisonneWidthEventDetailResult);
-    --RaisonneSizeRemEventDetailHeight: 5rem;
+    --libRaisonneSizeRemEventDetailWidth: var(--libRaisonneWidthEventDetailResult);
+    --libRaisonneSizeRemEventDetailHeight: 5rem;
 
     // event detail duration
-    --RaisonneColorTimelineEventDetailDuration: var(--libRaisonneColorPrimary);
-    --RaisonneColorBgEventDetail: rgba(221, 221, 221, 0.35); 
+    --libRaisonneColorTimelineEventDetailDuration: var(--libRaisonneColorPrimary);
+    --libRaisonneColorBgEventDetail: rgba(221, 221, 221, 0.35); 
 
     // z-index
-    --RaisonneZindexUiGlobal:   10;
-    --RaisonneZindexUiContents:  5;
-    --RaisonneZindexUiDisable:   1;
+    --libRaisonneZindexUiGlobal:   10;
+    --libRaisonneZindexUiContents:  5;
+    --libRaisonneZindexUiDisable:   1;
 }
