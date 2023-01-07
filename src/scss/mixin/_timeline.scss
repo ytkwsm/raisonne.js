@@ -1,0 +1,71 @@
+@use './_cq.scss' as cq;
+@mixin sizeDiffStickyLeft($type: width) {
+    // カスタムプロパティでコンテナクエリが使えるようになったらこのmixinを削除して:rootに数値を追加
+    $sizes: (
+        phone: 4,
+        tablet: 8,
+        mobile: 10,
+        desktop: 14
+    );
+    
+    @if $type == width {
+        width: calc(var(--libRaisonneGridUnitBase) * map-get($sizes, 'phone'));
+        @include cq.tablet(min) {
+            width: calc(var(--libRaisonneGridUnitBase) * map-get($sizes, 'tablet'));
+        }
+        @include cq.mobile(min) {
+            width: calc(var(--libRaisonneGridUnitBase) * map-get($sizes, 'mobile'));
+        }
+        @include cq.desktop(min) {
+            width: calc(var(--libRaisonneGridUnitBase) * map-get($sizes, 'desktop'));
+        }
+    }
+    @if $type == padding {
+        padding-left: calc(var(--libRaisonneGridUnitBase) * map-get($sizes, 'phone'));
+        @include cq.tablet(min) {
+            padding-left: calc(var(--libRaisonneGridUnitBase) * map-get($sizes, 'tablet'));
+        }
+        @include cq.mobile(min) {
+            padding-left: calc(var(--libRaisonneGridUnitBase) * map-get($sizes, 'mobile'));
+        }
+        @include cq.desktop(min) {
+            padding-left: calc(var(--libRaisonneGridUnitBase) * map-get($sizes, 'desktop'));
+        }
+    }
+    @if $type == years {
+        transform:  translateX(calc(var(--libRaisonneGridUnitBase) * map-get($sizes, 'phone')));
+        margin-left: calc(-1 * var(--libRaisonneGridUnitBase) * map-get($sizes, 'phone'));
+        width: calc(100% - ((var(--libRaisonneGridUnitBase) * map-get($sizes, 'phone')) * 1.5));
+        @include cq.tablet(min) {
+            transform:  translateX(calc(var(--libRaisonneGridUnitBase) * map-get($sizes, 'tablet')));
+            margin-left: calc(-1 * var(--libRaisonneGridUnitBase) * map-get($sizes, 'tablet'));
+            width: calc(100% - ((var(--libRaisonneGridUnitBase) * map-get($sizes, 'tablet')) * 1.5));
+        }
+        @include cq.mobile(min) {
+            transform:  translateX(calc(var(--libRaisonneGridUnitBase) * map-get($sizes, 'mobile')));
+            margin-left: calc(-1 * var(--libRaisonneGridUnitBase) * map-get($sizes, 'mobile'));
+            width: calc(100% - ((var(--libRaisonneGridUnitBase) * map-get($sizes, 'mobile')) * 1.5));
+        }
+        @include cq.desktop(min) {
+            transform:  translateX(calc(var(--libRaisonneGridUnitBase) * map-get($sizes, 'desktop')));
+            margin-left: calc(-1 * var(--libRaisonneGridUnitBase) * map-get($sizes, 'desktop'));
+            width: calc(100% - ((var(--libRaisonneGridUnitBase) * map-get($sizes, 'desktop')) * 1.5));
+        }
+    }
+    @if $type == dateTerm {
+        margin-left: calc(-1 * var(--libRaisonneGridUnitBase) - (var(--libRaisonneGridUnitBase) / 2));
+        padding-left: calc(1 * var(--libRaisonneGridUnitBase) + (var(--libRaisonneGridUnitBase) / 2));
+        @include cq.tablet(min) {
+            margin-left: calc(-1 * var(--libRaisonneGridUnitBase) * map-get($sizes, 'tablet') - (var(--libRaisonneGridUnitBase) / 2));
+            padding-left: calc(1 * var(--libRaisonneGridUnitBase) * map-get($sizes, 'tablet') + (var(--libRaisonneGridUnitBase) / 2));
+        }
+        @include cq.mobile(min) {
+            margin-left: calc(-1 * var(--libRaisonneGridUnitBase) * map-get($sizes, 'mobile') - (var(--libRaisonneGridUnitBase) / 2));
+            padding-left: calc(1 * var(--libRaisonneGridUnitBase) * map-get($sizes, 'mobile') + (var(--libRaisonneGridUnitBase) / 2));
+        }
+        @include cq.desktop(min) {
+            margin-left: calc(-1 * var(--libRaisonneGridUnitBase) * map-get($sizes, 'desktop') - (var(--libRaisonneGridUnitBase) / 2));
+            padding-left: calc(1 * var(--libRaisonneGridUnitBase) * map-get($sizes, 'desktop') + (var(--libRaisonneGridUnitBase) / 2));
+        }
+    }
+}
