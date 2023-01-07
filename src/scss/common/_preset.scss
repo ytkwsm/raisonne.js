@@ -1,9 +1,12 @@
+@use '../mixin/_cq.scss' as cq;
+
 :root {
     // grid
     --libRaisonneGridUnitBase: 1.5rem;
 
     // color
-    --libRaisonneColorPrimary: #00ffb2;
+    --libRaisonneColorMainPrimary: #00ffb2;
+    --libRaisonneColorMainSecondary: rgb(111, 236, 199);
     --libRaisonneColorColumnOdd: #f9f9f9;
     --libRaisonneColorColumnEven: #ffffff;
 
@@ -32,9 +35,6 @@
     --libRaisonneHeaderColorBgDayWeek: #eee;
     --libRaisonneColorTextDayWeekSat: #005aff;
     --libRaisonneColorTextDayWeekSun: #ff3c00;
-
-    // event detail
-    --libRaisonneWidthEventDetailUnit: 10;
     --libRaisonneWidthEventDetailResult: calc(var(--libRaisonneGridUnitBase) * var(--libRaisonneWidthEventDetailUnit));
 
     // event detail header
@@ -42,7 +42,7 @@
     --libRaisonneSizeRemEventDetailHeight: 5rem;
 
     // event detail duration
-    --libRaisonneColorTimelineEventDetailDuration: var(--libRaisonneColorPrimary);
+    --libRaisonneColorTimelineEventDetailDuration: var(--libRaisonneColorMainPrimary);
     --libRaisonneColorBgEventDetail: rgba(221, 221, 221, 0.35); 
 
     // z-index

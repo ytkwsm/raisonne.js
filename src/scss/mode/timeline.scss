@@ -1,4 +1,7 @@
+@use '../mixin/_cq.scss' as cq;
 @use '../mixin/_text.scss' as text;
+@use '../mixin/_timeline.scss' as timeline;
+
 
 
 [data-raisonne-elem="wrapper"] {
@@ -6,7 +9,8 @@
     width: 100%;
     max-width: 100%;
     // height: auto;
-    display: flow-root;
+    // display: flow-root;
+
 }
 
 [data-raisonne-mode="timeline"] {
@@ -24,8 +28,9 @@
     // height: 50%;
 
     &[data-raisonne-type="event"] {
+
         & [data-raisonne-elem="header"] {
-            border-top: 0.25rem var(--libRaisonneBorderStyleBase) var(--libRaisonneColorPrimary);
+            border-top: 0.25rem var(--libRaisonneBorderStyleBase) var(--libRaisonneColorMainPrimary);
             position: sticky;
             top: 0;
             left: 0;
@@ -49,7 +54,11 @@
 
             & [data-raisonne-header-nav-elem="controller"] {
                 position: absolute;
-                width: var(--libRaisonneSizeRemEventDetailWidth);
+                // width: var(--libRaisonneSizeRemEventDetailWidth);
+                // @include cq.phone(max) {
+                //     width: calc(var(--libRaisonneGridUnitBase) * 4);
+                // }
+                @include timeline.sizeDiffStickyLeft(width);
                 // height: var(--libRaisonneSizeRemEventDetailHeight);
                 height: 5.3rem;
                 z-index: 2;
@@ -68,12 +77,28 @@
                 border-bottom:  var(--libRaisonneBorderWeightBase) var(--libRaisonneBorderStyleBase) var(--libRaisonneBorderColorSeparateBase);
             }
 
+            & [data-raisonne-elem="controller-contents-label-event"] {
+                margin: 0;
+                font-weight: 400;
+                padding: 0.25em 1em 0.25em 0.25em;
+            }
+
+            & [data-raisonne-elem="controller-contents-label-event-title"] {
+                font-size: 0.6875rem;
+                // display: block;
+            }
+
+            & [data-raisonne-elem="controller-contents-label-event-num"] {
+                
+            }
+
             & [data-raisonne-header-nav-elem="years"] {
                 position: absolute;
                 left: var(--libRaisonnePosTimelineScrollX);//これを動かしてスクロール連動させる。
                 // iOSではstickyを諦めてtransformにする？
                 // transform: translateX(var(--libRaisonnePosTimelineScrollX));
-                padding-left: var(--libRaisonneSizeRemEventDetailWidth);
+                // padding-left: var(--libRaisonneSizeRemEventDetailWidth);
+                @include timeline.sizeDiffStickyLeft(padding);
             }
 
             & [data-raisonne-header-nav-elem="year"] {
@@ -98,9 +123,10 @@
                 font-size: 1.5rem;
                 margin: 0;
                 padding: 0.25em 1em 0.25em 0.25em;
-                transform:  translateX(var(--libRaisonneSizeRemEventDetailWidth));
-                margin-left: calc(-1 * var(--libRaisonneSizeRemEventDetailWidth));
-                width: calc(100% - (var(--libRaisonneSizeRemEventDetailWidth) * 1.5));
+                // transform:  translateX(var(--libRaisonneSizeRemEventDetailWidth));
+                // margin-left: calc(-1 * var(--libRaisonneSizeRemEventDetailWidth));
+                // width: calc(100% - (var(--libRaisonneSizeRemEventDetailWidth) * 1.5));
+                @include timeline.sizeDiffStickyLeft(years);
                 font-weight: 400;
 
                 & [data-raisonne-header-nav-elem="month-label-year"] {
@@ -187,11 +213,24 @@
             & [data-raisonne-elem="details"] {
                 pointer-events: none;
                 list-style-type: none;
+                position: relative;
                 margin: 0;
                 padding: var(--libRaisonneGridUnitBase) 0 0 0;
                 width: fit-content;
                 background: 
                 linear-gradient(90deg, var(--libRaisonneColorColumnOdd) var(--libRaisonneGridUnitBase), var(--libRaisonneColorColumnEven) var(--libRaisonneGridUnitBase)) 0 0 / calc(var(--libRaisonneGridUnitBase) * 2) calc(var(--libRaisonneGridUnitBase) * 2);
+                    
+                &::before {
+                    display: block;
+                    @include timeline.sizeDiffStickyLeft(width);
+                    height: calc(100% - (var(--libRaisonneGridUnitBase) * 2));
+                    content: " ";
+                    background: #fff;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    border-right: var(--libRaisonneBorderWeightBase) var(--libRaisonneBorderStyleBase) var(--libRaisonneBorderColorEventDetail);
+                }
 
                 [data-raisonne-elem="timeline-event-detail"] {
                     // width: 100%;
@@ -221,7 +260,7 @@
                         display: block;
                         content: " ";
                         position: absolute;
-                        top: -1px;
+                        top: 0;
                         left: 0;
                         z-index: 1;
                         width: 100%;
@@ -237,7 +276,8 @@
                 [data-raisonne-elem="timeline-event-detail-header"] {
                     pointer-events: auto;
                     cursor: default;
-                    width: var(--libRaisonneSizeRemEventDetailWidth);
+                    // width: var(--libRaisonneSizeRemEventDetailWidth);
+                    @include timeline.sizeDiffStickyLeft(width);
                     height: var(--libRaisonneSizeRemEventDetailHeight);
                     background: var(--libRaisonneColorBgBase);
                     border-right: var(--libRaisonneBorderWeightBase) var(--libRaisonneBorderStyleBase) var(--libRaisonneBorderColorEventDetail);
@@ -249,6 +289,8 @@
                 
                 [data-raisonne-elem="timeline-event-detail-title-wrapper"] {
                     font-size: var(--libRaisonneFontSizeTitleAll);
+                    // width: var(--libRaisonneSizeRemEventDetailWidth);
+                    @include timeline.sizeDiffStickyLeft(width);
                     @include text.weight(regular);
                     margin: 0;
                 }
@@ -277,8 +319,7 @@
                     position: sticky;
                     top: 0;
                     left: 0;
-                    margin-left: calc(-1 * var(--libRaisonneSizeRemEventDetailWidth) - (var(--libRaisonneGridUnitBase) / 2));
-                    padding-left: calc(1 * var(--libRaisonneSizeRemEventDetailWidth) + (var(--libRaisonneGridUnitBase) / 2));
+                    @include timeline.sizeDiffStickyLeft(dateTerm);
                     width: 100%;
                     min-width: fit-content;
                     max-width: fit-content;

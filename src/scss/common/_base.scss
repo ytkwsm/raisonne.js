@@ -1,7 +1,7 @@
 @use '../mixin/_text.scss' as text;
 
 [data-raisonne-elem="wrapper"].raisonne-wrapper {
-    color: var(--TextColor);
+    container: raisonne-root / inline-size;
     overscroll-behavior: contain;
 
     // box-sizing

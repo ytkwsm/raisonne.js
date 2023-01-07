@@ -4,7 +4,7 @@ export function header(settings: any, data: any){
     return `<header data-raisonne-elem="header" class="raisonne-header">
             <div data-raisonne-elem="header-contents">
             ${navController(settings, data)}
-            <div data-raisonne-header-nav-elem="years">
+            <div data-raisonne-header-nav-elem="years" aria-hidden="true" role="presentation">
             ${navDay(settings, data)}
             </div>
             </div>
@@ -14,9 +14,9 @@ export function header(settings: any, data: any){
 function navController(settings: any, data: any)   { return `
                                     <div data-raisonne-header-nav-elem="controller">
                                         <div data-raisonne-elem="controller-contents">
-                                        <h2>
-                                            <span>イベント数：</span>
-                                            <span>${data.things.num.mainAll}</span>
+                                        <h2 data-raisonne-elem="controller-contents-label-event">
+                                            <span data-raisonne-elem="controller-contents-label-event-num">${data.things.num.mainAll}</span>
+                                            <span data-raisonne-elem="controller-contents-label-event-title">イベント</span>
                                         </h2>
                                         </div>
                                     </div>
