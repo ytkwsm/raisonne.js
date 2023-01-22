@@ -315,10 +315,12 @@ console.log(observer);
 
       if(displayDates.start <= detailDates.end && displayDates.end >= detailDates.start){
         // $('#now6').text('今日は開始日〜終了日の間です。');
-        detail.setAttribute("style", "height: var(--libRaisonneSizeRemEventDetailHeight);");
+        detail.setAttribute("data-raisonne-elem-status-display", "true");
+        detail.setAttribute("aria-hidden", "false");
       } else {
         // $('#now6').text('今日は開始日〜終了日外です。');
-        detail.setAttribute("style", "height: 0; overflow: hidden");
+        detail.setAttribute("data-raisonne-elem-status-display", "false");
+        detail.setAttribute("aria-hidden", "true");
       }
     });
   }

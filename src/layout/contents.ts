@@ -29,7 +29,8 @@ export default function (settings: any, data:any){
             thingElem.wrapperAll = document.createElement("li");
             thingElem.wrapperAll.dataset.raisonneElem = "timeline-event-detail";
             thingElem.wrapperAll.dataset.raisonneElemEventDateStart = data.things.main.all[i].dateTermStart;
-            thingElem.wrapperAll.dataset.raisonneElemEventDateLast = data.things.main.all[i].dateTermEnd;
+            thingElem.wrapperAll.dataset.raisonneElemEventDateLast  = data.things.main.all[i].dateTermEnd;
+            thingElem.wrapperAll.dataset.raisonneElemStatusDisplay   = "false";
 
             // 各イベントレイアウトのためのstyleタグ生成
             thingElem.wrapperStyle = document.createElement("style");

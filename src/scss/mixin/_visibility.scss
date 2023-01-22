@@ -1,0 +1,73 @@
+
+@mixin display() {
+    &[data-raisonne-elem-status-display="false"] {
+        display: none;
+        opacity: 0;
+        height: 0;
+        transition: height .5s ease-in-out;
+    }
+
+    &[data-raisonne-elem-status-display="true"] {
+        display: flex;
+        opacity: 1;
+        animation-duration: 0.5s;
+        animation-name: fade-in;
+        -moz-animation-duration: 0.5s;
+        -moz-animation-name: fade-in;
+        -webkit-animation-duration: 0.5s;
+        -webkit-animation-name: fade-in;
+        height: fit-content;
+        transition: height .25s ease-in-out;
+    }
+
+    @keyframes fade-in {
+        0% {
+          display: none;
+          opacity: 0;
+        }
+  
+        1% {
+          display: flex;
+          opacity: 0;
+        }
+  
+        100% {
+          display: flex;
+          opacity: 1;
+        }
+      }
+  
+      @-moz-keyframes fade-in {
+        0% {
+          display: none;
+          opacity: 0;
+        }
+  
+        1% {
+          display: flex;
+          opacity: 0;
+        }
+  
+        100% {
+          display: flex;
+          opacity: 1;
+        }
+      }
+  
+      @-webkit-keyframes fade-in {
+        0% {
+          display: none;
+          opacity: 0;
+        }
+  
+        1% {
+          display: flex;
+          opacity: 0;
+        }
+  
+        100% {
+          display: flex;
+          opacity: 1;
+        }
+      }
+}

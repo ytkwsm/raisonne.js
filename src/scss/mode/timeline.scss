@@ -1,6 +1,7 @@
 @use '../mixin/_cq.scss' as cq;
 @use '../mixin/_text.scss' as text;
 @use '../mixin/_timeline.scss' as timeline;
+@use '../mixin/_visibility.scss' as visibility;
 
 
 
@@ -211,11 +212,12 @@
             }
 
             & [data-raisonne-elem="details"] {
+                min-height: 24rem;
                 pointer-events: none;
                 list-style-type: none;
                 position: relative;
                 margin: 0;
-                padding: var(--libRaisonneGridUnitBase) 0 0 0;
+                padding: var(--libRaisonneGridUnitBase) 0 4rem 0;
                 width: fit-content;
                 background: 
                 linear-gradient(90deg, var(--libRaisonneColorColumnOdd) var(--libRaisonneGridUnitBase), var(--libRaisonneColorColumnEven) var(--libRaisonneGridUnitBase)) 0 0 / calc(var(--libRaisonneGridUnitBase) * 2) calc(var(--libRaisonneGridUnitBase) * 2);
@@ -240,6 +242,8 @@
                     display: flex;
                     border-top: var(--libRaisonneBorderWeightBase) var(--libRaisonneBorderStyleBase) var(--libRaisonneBorderColorEventDetail);
                     pointer-events: none;
+
+                    @include visibility.display();
 
                     &:hover {
                         background-color: var(--libRaisonneColorBgEventDetail);
