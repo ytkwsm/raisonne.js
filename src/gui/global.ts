@@ -33,13 +33,16 @@ export function navDay(settings: any, data: any)   {
         // let target = document.querySelector<HTMLDivElement>(`[data-raisonne-elem="header"]`);
         for(let i = 0; i < settings.date.term.diff.year; i++) {//年数分のループ
 
-            html += `<div data-raisonne-header-nav-elem="year">`;
+            html += `<div data-raisonne-header-nav-elem="year"
+                            data-raisonne-header-nav-elem-year="${dateNum.year}"
+                    >`;
 
             if(dateNum.yearCnt == 1) {// 1年目
 
                 for(let m = settings.date.term.start.month; m <= 12; m++) {//月のループ
 
-                    html += `<div data-raisonne-header-nav-elem="month">
+                    html += `<div data-raisonne-header-nav-elem="month" 
+                                data-raisonne-header-nav-elem-month="${String(m).padStart(2, '0')}">
                     <h3 data-raisonne-header-nav-elem="month-label">
                         <span data-raisonne-header-nav-elem="month-label-year">${dateNum.year}</span>
                         <span data-raisonne-header-nav-elem="month-label-separator">/</span>
@@ -55,7 +58,7 @@ export function navDay(settings: any, data: any)   {
                         let thisDate: string = String(dateNum.year + "-" + String(m).padStart(2, '0') + "-" + String(d).padStart(2, '0'));
                         html += `<span data-raisonne-header-nav-elem="day" 
                             data-raisonne-elem="timeline-event-nav-day"
-                            data-raisonne-header-date-full="${monthDaysStr}"
+                            data-raisonne-header-date-full="${thisDate}"
                             data-raisonne-header-date-y="${dateNum.year}" 
                             data-raisonne-header-date-m="${m}" 
                             data-raisonne-header-date-d="${d}" 
