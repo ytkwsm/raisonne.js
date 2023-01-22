@@ -1,5 +1,5 @@
 
-import config from '../data/config.json'
+import { config } from '../config/config-values'
 
 export function trace(logMsg: any, flg?: boolean) {
     // for debug
