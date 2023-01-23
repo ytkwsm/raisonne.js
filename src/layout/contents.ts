@@ -31,6 +31,8 @@ export default function (settings: any, data:any){
             thingElem.wrapperAll.dataset.raisonneElemEventDateStart = data.things.main.all[i].dateTermStart;
             thingElem.wrapperAll.dataset.raisonneElemEventDateLast  = data.things.main.all[i].dateTermEnd;
             thingElem.wrapperAll.dataset.raisonneElemStatusDisplay   = "false";
+            thingElem.wrapperAll.setAttribute("itemscope", "");//itemscope
+            thingElem.wrapperAll.setAttribute("itemtype", "http://schema.org/Event");//itemscope
 
             // 各イベントレイアウトのためのstyleタグ生成
             thingElem.wrapperStyle = document.createElement("style");
@@ -73,6 +75,7 @@ export default function (settings: any, data:any){
 
             thingElem.titleAll = document.createElement("h2");
             thingElem.titleAll.dataset.raisonneElem = "timeline-event-detail-title-wrapper";
+            thingElem.titleAll.setAttribute("itemprop", "name");
 
             // titleCrown
             if(data.things.main.all[i].titleCrown) {
@@ -116,12 +119,14 @@ export default function (settings: any, data:any){
                 thingElem.dateTermStart.append(document.createTextNode(`${date.getDetails(data.things.main.all[i].dateTermStart).fullStrDaySlash}`));
                 thingElem.dateTermStart.setAttribute("datetime", data.things.main.all[i].dateTermStart);
                 thingElem.dateTermStart.setAttribute("class", "dateStart");
+                thingElem.dateTermStart.setAttribute("itemprop", "startDate");
                 thingElem.dateTermStart.dataset.raisonneElem = "timeline-event-detail-date-term-day";
 
                 thingElem.dateTermEnd = document.createElement("time");
                 thingElem.dateTermEnd.append(document.createTextNode(` – ${date.getDetails(data.things.main.all[i].dateTermEnd).fullStrDaySlash}`));
                 thingElem.dateTermEnd.setAttribute("datetime", data.things.main.all[i].dateTermEnd);
                 thingElem.dateTermEnd.setAttribute("class", "dateEnd");
+                thingElem.dateTermEnd.setAttribute("itemprop", "endDate");
                 thingElem.dateTermEnd.dataset.raisonneElem = "timeline-event-detail-date-term-day";
 
                 thingElem.dateTerm.append(thingElem.dateTermStart);
