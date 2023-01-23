@@ -145,7 +145,7 @@ export default class {
         return responseData;
       });
       dataObj = {...dataObj, ...responseData};
-      console.log(dataObj);
+      // console.log(dataObj);
       console.log("代入した！");
     }
     debug.trace("end getThings");
@@ -191,7 +191,6 @@ export default class {
       lastX = event.clientX;
       lastY = event.clientY;
       copyX = board.scrollLeft;
-      // targetValue = event.clientX;
       target.style.setProperty('--libRaisonnePosTimelineScrollX', -1 * copyX + "px");
       
       board.addEventListener('mouseup', up)
@@ -208,22 +207,31 @@ export default class {
       board.removeEventListener('mousemove', move)
     }
 
+    const scroll: any = event => {
+      if (event.target !== board) return;
+      console.log("test scroll");
+
+      lastX = event.clientX;
+      lastY = event.clientY;
+      copyX = board.scrollLeft;
+      target.style.setProperty('--libRaisonnePosTimelineScrollX', -1 * copyX + "px");
+    }
+
     const move: any = event => {
       if (!lastX || !lastY) return;
       console.log("test move");
       
-      // target.scrollLeft -= event.clientX - lastX;
       board.scrollLeft -= event.clientX - lastX;
       board.scrollTop -= event.clientY - lastY;
-      // targetValue  -= event.clientX - lastX;
       target.style.setProperty('--libRaisonnePosTimelineScrollX', -1 * board.scrollLeft + "px");
-      // target.style.left -= event.clientX;
       lastX = event.clientX;
       lastY = event.clientY;
       copyX = event.clientX;
+
     }
 
     board.addEventListener('mousedown', down)
+    board.addEventListener('scroll', scroll)
   }
 
   async monitorVisibleThings() {
@@ -259,7 +267,6 @@ const observer = new IntersectionObserver(doWhenIntersect, options);
 boxes.forEach(box => {
   observer.observe(box);
 });
-console.log(observer);
 
   /**
    * 交差したときに呼び出す関数
@@ -307,9 +314,9 @@ console.log(observer);
 
     eventDetails.forEach(detail => {
       const detailDates: any = {};
-      console.log(detail);
-      console.log(detail.getAttribute("data-raisonne-elem-event-date-start"));
-      console.log(detail.getAttribute("data-raisonne-elem-event-date-last"));
+      // console.log(detail);
+      // console.log(detail.getAttribute("data-raisonne-elem-event-date-start"));
+      // console.log(detail.getAttribute("data-raisonne-elem-event-date-last"));
       detailDates.start = detail.getAttribute("data-raisonne-elem-event-date-start");
       detailDates.end   = detail.getAttribute("data-raisonne-elem-event-date-last");
 
@@ -331,10 +338,10 @@ console.log(observer);
  */
 function activateIndex(element: any) {
   let tempArray = [];
-  console.log(element.dataset);
+  // console.log(element.dataset);
   tempArray = element.dataset;
-  console.log("tempArray");
-  console.log(tempArray);
+  // console.log("tempArray");
+  // console.log(tempArray);
   return element.dataset;
   // // すでにアクティブになっている目次を選択
   // const currentActiveIndex = document.querySelector("#indexList .active");
