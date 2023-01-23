@@ -139,8 +139,8 @@ export default function (settings: any, data:any){
 
 
             fragment.append(thingElem.wrapperAll);
-            console.log(i);
-            console.log(fragment);
+            // console.log(i);
+            // console.log(fragment);
         }
         target.all.append(fragment);
 
