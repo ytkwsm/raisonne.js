@@ -54,7 +54,7 @@ export function navDay(settings: any, data: any)   {
                     let monthDaysStr: string = String(dateNum.year + "-" + String(m).padStart(2, '0') + "-01");//日付分のループ用の数値抽出用の文字列を生成
                     let monthDaysNum: number = Number(date.getDetails(monthDaysStr).monthDays);//ループ用の数値に変換
                     for(let d = 1; d <= monthDaysNum; d++) {//日にちのループ
-                        console.log(d);
+                        // console.log(d);
                         let thisDate: string = String(dateNum.year + "-" + String(m).padStart(2, '0') + "-" + String(d).padStart(2, '0'));
                         html += `<span data-raisonne-header-nav-elem="day" 
                             data-raisonne-elem="timeline-event-nav-day"
@@ -71,7 +71,7 @@ export function navDay(settings: any, data: any)   {
                     }
 
                     html += `</div></div>`;
-                    console.log(html)
+                    // console.log(html)
 
                 }
                 dateNum.year++
@@ -79,13 +79,13 @@ export function navDay(settings: any, data: any)   {
             }
             else if (dateNum.yearCnt == settings.date.term.diff.year) {//最終年
                 for(let m = 1; m <= 12 - settings.date.term.end.monthNega; m++) {//月のループ
-                    console.log(dateNum.year + "年" + m + "月");
+                    // console.log(dateNum.year + "年" + m + "月");
                 }
                 return html;
             }
             else {//初年・最終年を除いた年
                 for(let m = 1; m <= 12; m++) {//月のループ
-                    console.log(dateNum.year + "年" + m + "月");
+                    // console.log(dateNum.year + "年" + m + "月");
                 }
                 dateNum.year++
                 dateNum.yearCnt++;
@@ -94,13 +94,13 @@ export function navDay(settings: any, data: any)   {
 
 
             html += `</div>`;
-            console.log(html)
+            // console.log(html)
             return html;
 
         }
         return html;
     }
-console.log(html)
+// console.log(html)
 return html;
 }
 
